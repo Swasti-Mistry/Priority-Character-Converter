@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority Character Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    margin: 50px auto;
+    width: 80%;
+}
+
+input[type="text"], button {
+    margin: 10px;
+    padding: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+<body>
+    <div class="container">
+        <h1>Priority Character Converter</h1>
+        <label for="priorityChar">Enter the Priority Character:</label>
+        <input type="text" id="priorityChar" placeholder="Priority Character (e.g., I)" maxlength="1">
+        <br>
+        <label for="inputString">Enter the String:</label>
+        <input type="text" id="inputString" placeholder="Input String">
+        <br>
+        <button onclick="convert()">Convert</button>
+        <br>
+        <p id="output"></p>
+    </div>
+    <script>function convert() {
+        var priorityChar = document.getElementById("priorityChar").value.toUpperCase();
+        var inputString = document.getElementById("inputString").value.toUpperCase();
+        var output = '';
+    
+        if (!inputString.includes(priorityChar)) {
+            output = "Priority Character not found in the input string.";
+        } else {
+            for (var i = 0; i < inputString.length; i++) {
+                if (inputString[i] === priorityChar) {
+                    output += '1';
+                } else {
+                    output += '0';
+                }
+            }
+        }
+    
+        document.getElementById("output").textContent = output;
+    }
+    </script>
+</body>
+</html>
